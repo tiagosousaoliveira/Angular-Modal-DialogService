@@ -1,0 +1,67 @@
+<div class="container">
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Informacao</th>
+        <th scope="col">Opcao</th>
+      </tr>
+    </thead>
+  </table>
+  <table>
+    <tbody>
+      <div class="row">
+          <div class="col-sm-6">
+              <tr *ngFor="let dados of formulario">
+                <th scope="row">1</th>
+                <td>{{dados.nome}}</td>
+                <td>{{dados.dados}}</td>
+                <td><button type="submit" class="btn btn-primary" (click)="testeModal(dados)">Submeter</button></td>
+              </tr>
+            </div>
+            <div class="col-sm-6">
+              <tr *ngFor="let dados of dados">
+                <th scope="row">1</th>
+                <td>{{dados.nome}}</td>
+                <td>{{dados.dados}}</td>
+                <td>
+                  <button 
+                    type="button" 
+                    class="btn btn-primary" 
+                    data-toggle="modal" 
+                    data-target="#modalestudo" 
+                    (click)="testeModal(dados)">
+                    Submeter
+                  </button>
+                </td> 
+              </tr>
+              <tr>
+                <td>
+                  <input type="radio" value="tipo1">
+                </td>
+                <td>
+                    <input type="radio" value="tipo2">
+                  </td>
+                  <td>
+                      <input type="radio" value="tipo3">
+                    </td>
+                    <td>
+                        <input type="radio" value="tipo4">
+                      </td>
+                      <td>
+                          <input type="radio" value="tipo5">
+                        </td>
+              </tr>
+
+              <tr>
+                <button type="submit" class="btn btn-primary" [disabled]="!tipo5" ></button>
+              </tr>
+            </div>
+      </div>
+    </tbody>
+  </table> 
+
+  <app-modal-do-evento [message]="testes"(eventos)="emitirevento($event)"></app-modal-do-evento>
+
+</div>
